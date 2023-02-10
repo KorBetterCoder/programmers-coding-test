@@ -10,16 +10,13 @@
  */
 class Solution {
     public int solution(int balls, int share) {
-        int answer = 0;
-
-        return fac(balls) / (fac(balls-share) * fac(share));
+        return fac(balls, share);
     }
-
-    public static int fac(int n) {
-        if(n > 1) {
-            return fac(n-1) * n;
+    public static int fac(int n, int r) {
+        if (r == 0 || n == r) {
+            return 1;
+        } else {
+            return fac(n-1, r-1) + fac(n-1, r);
         }
-        else
-            return n;
     }
 }
